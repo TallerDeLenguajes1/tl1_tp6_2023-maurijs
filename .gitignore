@@ -1,12 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,executable,visualstudiocode,c
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,executable,visualstudiocode,c
 
-*.dll
-*.pdb
-
 ### C ###
 # Prerequisites
 *.d
+
 # Object files
 *.o
 *.ko

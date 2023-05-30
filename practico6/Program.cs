@@ -32,57 +32,88 @@ if (resultado)
     }
 }  */
 
-Console.WriteLine("Operacion: \n1-Sumar\n2-Restar\n3-Multiplicar\n4-Dividir");
+
+Console.WriteLine("Ingrese una operacion: \n1-Valor Absoluto\n2-El cuadrado\n3-La raiz cuadrada\n4-El seno\n5-El coseno\n6-La parte entera de un tipo float");
+int op;
+double n1, resultado;
 string? opcion = Console.ReadLine();
-Console.WriteLine("Ingrese los dos numeros a operar");
-string? operando1 = Console.ReadLine();
-string? operando2 = Console.ReadLine();
-int op, n1, n2;
 
-float result;
-if(int.TryParse(operando1, out n1) && int.TryParse(operando2, out n2)  && int.TryParse(opcion, out op) && op<4 && op >=0)
+do
 {
-    Console.WriteLine("El resultado es: ");
-    switch (op)
+
+    //verifico que la opcion sea un numero valido
+    if (int.TryParse(opcion, out op) && op<6 && op >0)
     {
-        case 1:
-            result = sumar(n1, n2);
-            Console.Write(result);
-            break;
-        case 2:
-            result = restar(n1, n2);
-            Console.Write(result);
-            break;
-        case 3:
-            result = multiplicar(n1, n2);
-            Console.Write(result);
-            break;
-        case 4:
-            result = dividir(n1, n2);
-            Console.Write(result);
-            break;
+        Console.WriteLine("Ingrese un numero calculadora");
+        //Ingresa por teclado un string para poder validar si es un numero 
+        string? operando1 = Console.ReadLine();
+        if(double.TryParse(operando1, out n1))
+        {
+            Console.WriteLine("El resultado es: ");
+            switch (op)
+            {
+                case 1:
+                    resultado = valorAbsoluto(n1);
+                    Console.WriteLine("Valor absoluto: " + resultado); 
+                    break;
+                case 2:
+                    resultado = cuadrado(n1);
+                    Console.WriteLine("Cuadrado: " + resultado);
+                    break;
+                case 3:
+                    resultado = raizCuadrada(n1);
+                    Console.WriteLine("Raíz cuadrada: " + resultado);
+                    break;
+                case 4:
+                    resultado = seno(n1);
+                    Console.WriteLine("Seno: " + resultado);
+                    break;
+                case 5:
+                    resultado = coseno(n1);
+                    Console.WriteLine("Coseno: " + resultado);
+                    break;
+                case 6:
+                    resultado = parteEntera(n1);
+                    Console.WriteLine("Parte entera: " + resultado);
+                    break;
+            }
+        }
     }
+    Console.WriteLine("Ingrese una operacion: \n0-Salir\n1-Valor Absoluto\n2-El cuadrado\n3-La raiz cuadrada\n4-El seno\n5-El coseno\n6-La parte entera de un tipo float");
+    string? opcion = Console.ReadLine();
 
-}
+} while (op != 0);
+
 //declaracion de funciones
-float dividir(int a, int b)
+double valorAbsoluto(double a)
 {
-    float resultado = (float)a / b;
+    double resultado = Math.Abs(a);
     return resultado;
-
 }
-int sumar(int a, int b)
-{
-    return a + b;
 
+double cuadrado(double a)
+{
+    return a*a;
 }
-float restar(int a, int b)
-{
-    return a - b;
 
+double raizCuadrada(double a)
+{
+    double resultado = (double)Math.Sqrt(a);
+    return a;
 }
-float multiplicar(int a, int b)
-{
-    return a * b;
 
+double seno(double a)
+{
+    double resultado = Math.Sin(a);
+    return resultado;
+}
+double coseno(double a)
+{
+    double resultado = (float)Math.Cos(a);
+    return resultado;
+}
+
+double parteEntera(double a)
+{
+    return (int)a;
 }
