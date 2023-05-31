@@ -12,7 +12,7 @@ texto ingresado es de hecho un número y, en caso afirmativo, realice la inversi
 número sólo si éste es mayor a 0.*/
 string? s;
 int n, resto;
-bool resultado;
+/*bool resultado;
 
 Console.WriteLine("Ingrese un numero: ");
 s = Console.ReadLine();
@@ -30,7 +30,7 @@ if (resultado)
         }
 
     }
-}
+}*/
 
 int inicio, longSubcadena;
 // Obtener la longitud de la cadena y mostrar por pantalla
@@ -53,10 +53,19 @@ string subcadena = cadena.Substring(inicio, longSubcadena);
 Console.WriteLine("Subcadena extraída: " + subcadena);
 
 // Realizar operaciones utilizando la calculadora
-int num1, num2;
+double num1, num2, resultado;
 
 Console.Write("Ingrese el primer número: ");
-int.TryParse(Console.ReadLine(), out num1);
+double.TryParse(Console.ReadLine(), out num1);
 
 Console.Write("Ingrese el segundo número: ");
-int.TryParse(Console.ReadLine(), out num2);
+double.TryParse(Console.ReadLine(), out num2);
+
+resultado = sumar(num1, num2);
+Console.WriteLine("la suma de " + num1 + " y de "+ num2 +" es igual a: " + resultado);
+
+
+double sumar(double a, double b)
+{
+    return a + b;
+}
