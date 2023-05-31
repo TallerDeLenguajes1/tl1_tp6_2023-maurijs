@@ -33,52 +33,77 @@ if (resultado)
 }  */
 
 
-Console.WriteLine("Ingrese una operacion: \n1-Valor Absoluto\n2-El cuadrado\n3-La raiz cuadrada\n4-El seno\n5-El coseno\n6-La parte entera de un tipo float");
+Console.WriteLine("Ingrese una operacion: \n1-Sumar\n2-Restar\n3-Multiplicar\n4-Dividir\n5-Valor Absoluto\n6-El cuadrado\n7-La raiz cuadrada\n8-El seno\n9-El coseno\n10-La parte entera de un tipo float");
 int op;
-double n1, resultado;
+double n1, n2, resultado;
 string? opcion = Console.ReadLine();
-
+string? operando1;
+string? operando2 = "0";
 do
 {
 
     //verifico que la opcion sea un numero valido
-    if (int.TryParse(opcion, out op) && op<6 && op >0)
+    if (int.TryParse(opcion, out op) && op<10 && op>0)
     {
-        Console.WriteLine("Ingrese un numero calculadora");
-        //Ingresa por teclado un string para poder validar si es un numero 
-        string? operando1 = Console.ReadLine();
-        if(double.TryParse(operando1, out n1))
+        if (op<5)
         {
-            Console.WriteLine("El resultado es: ");
+            Console.WriteLine("Ingrese los dos numeros a operar");
+            //Ingresa por teclado un string para poder validar si es un numero 
+            operando1 = Console.ReadLine();
+            operando2 = Console.ReadLine();
+        } else
+        {
+            Console.WriteLine("Ingrese un numero calculadora");
+            //Ingresa por teclado un string para poder validar si es un numero 
+            operando1 = Console.ReadLine();
+        }
+        if(double.TryParse(operando1, out n1) && double.TryParse(operando2, out n2))
+        {
             switch (op)
             {
-                case 1:
+                 case 1:
+                    resultado = sumar(n1, n2);
+                    Console.WriteLine("El resultado es " + resultado);
+                    break;
+                case 2:
+                    resultado = restar(n1, n2);
+                    Console.WriteLine("El resultado es " + resultado);
+                    break;
+                case 3:
+                    resultado = multiplicar(n1, n2);
+                    Console.WriteLine("El resultado es " + resultado);
+                    break;
+                case 4:
+                    resultado = dividir(n1, n2);
+                    Console.WriteLine("El resultado es " + resultado);
+                    break;
+                case 5:
                     resultado = valorAbsoluto(n1);
                     Console.WriteLine("Valor absoluto: " + resultado); 
                     break;
-                case 2:
+                case 6:
                     resultado = cuadrado(n1);
                     Console.WriteLine("Cuadrado: " + resultado);
                     break;
-                case 3:
+                case 7:
                     resultado = raizCuadrada(n1);
                     Console.WriteLine("Raíz cuadrada: " + resultado);
                     break;
-                case 4:
+                case 8:
                     resultado = seno(n1);
                     Console.WriteLine("Seno: " + resultado);
                     break;
-                case 5:
+                case 9:
                     resultado = coseno(n1);
                     Console.WriteLine("Coseno: " + resultado);
                     break;
-                case 6:
+                case 10:
                     resultado = parteEntera(n1);
                     Console.WriteLine("Parte entera: " + resultado);
                     break;
             }
         }
-    Console.WriteLine("Ingrese una operacion: \n0-Salir\n1-Valor Absoluto\n2-El cuadrado\n3-La raiz cuadrada\n4-El seno\n5-El coseno\n6-La parte entera de un tipo float");
+    Console.WriteLine("Ingrese una operacion: \n1-Sumar\n2-Restar\n3-Multiplicar\n4-Dividir\n5-Valor Absoluto\n6-El cuadrado\n7-La raiz cuadrada\n8-El seno\n9-El coseno\n10-La parte entera de un tipo float"); 
     opcion = Console.ReadLine();
     }
 
@@ -137,4 +162,25 @@ double coseno(double a)
 double parteEntera(double a)
 {
     return (int)a;
+}
+
+
+double dividir(double a, double b)
+{
+    double resultado = a/b;
+    return resultado;
+
+}
+double sumar(double a, double b)
+{
+    return a + b;
+}
+double restar(double a, double b)
+{
+    return a - b;
+}
+
+double multiplicar(double a, double b)
+{
+    return a * b;
 }
