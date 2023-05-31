@@ -31,3 +31,32 @@ if (resultado)
 
     }
 }
+
+int inicio, longSubcadena;
+// Obtener la longitud de la cadena y mostrar por pantalla
+string cadena = "Hola, soy una cadena";
+int longitud = cadena.Length;
+Console.WriteLine("Longitud de la cadena: " + longitud);
+
+// Concatenar dos cadenas distintas
+Console.Write("Ingrese una segunda cadena: ");
+string? segundaCadena = Console.ReadLine();
+string? concatenacion = cadena + segundaCadena;
+Console.WriteLine("Concatenación de ambas cadenas: " + concatenacion);
+
+// Extraer una subcadena de la cadena ingresada
+Console.Write("Ingrese el índice de inicio: ");
+int.TryParse(Console.ReadLine(), out inicio);
+Console.Write("Ingrese la longitud de la subcadena: ");
+int.TryParse(Console.ReadLine(), out longSubcadena);
+string subcadena = cadena.Substring(inicio, longSubcadena);
+Console.WriteLine("Subcadena extraída: " + subcadena);
+
+// Realizar operaciones utilizando la calculadora
+int num1, num2;
+
+Console.Write("Ingrese el primer número: ");
+int.TryParse(Console.ReadLine(), out num1);
+
+Console.Write("Ingrese el segundo número: ");
+int.TryParse(Console.ReadLine(), out num2);
