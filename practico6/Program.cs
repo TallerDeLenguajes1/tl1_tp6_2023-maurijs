@@ -84,26 +84,6 @@ do
 } while (op != 0);
 
 
-Console.WriteLine("\nIngrese dos numeros a comparar:\n");
-string? numero1 = Console.ReadLine();
-string? numero2 = Console.ReadLine();
-float num1, num2;
-
-if(float.TryParse(numero1, out num1) && float.TryParse(numero2, out num2))
-{
-    if(num1 > num2)
-    {
-        Console.WriteLine("\n El " + num1 + " es mayor que " + num2);
-    } else if (num2 > num1)
-    {
-        Console.WriteLine("\n El " + num2 + " es mayor que " + num1);
-    } else
-    {
-        Console.WriteLine("\nLos dos numeros son iguales");
-    }  
-}
-
-
 //declaracion de funciones
 double valorAbsoluto(double a)
 {
